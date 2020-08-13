@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    background: lightgray;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 25px;
+}
+
+ul {
+    padding: 10px;
+}
+
+.book {
+    padding: 20px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    left: 50%;
+}
+
+.new-book {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease;
+}
+
+.new-book .delete-button {
+    left: 80%;
+    height: 25px;
+}
+
+.new-books {
+    list-style: none;
+}
+
+.new-book button {
+    left: 70%;
+    height: 25px;
+}
+
+.new-book-list {
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.deleted {
+    transition: 2s ease;
+}
+
+.has-read {
+    color: green;
+}
