@@ -1,20 +1,51 @@
 // Add Event Listeners to display and hide card
-const showAddCard = () => {
-    showCard.style.display = 'block';
-}
+const showAddCard = () => { showCard.style.display = 'block'; }
 
-const deleteAddCard = () => {
-   showCard.style.display = 'none'; 
-}
+const deleteAddCard = () => { showCard.style.display = 'none'; }
 
 const appendBook = event => {
     event.preventDefault();
 
-    let title = document.querySelector('.input-title').value;
-    let author = document.querySelector('.input-author').value;
+    // Create Object
+    const title = document.querySelector('.input-title').value;
+    const author = document.querySelector('.input-author').value;
+    const read = document.getElementById('radio-yes').checked ? document.getElementById('radio-yes').value : document.getElementById('radio-no').value;
+    const pages = document.querySelector('.input-pages').value;
+    const pagesRead = document.querySelector('.input-pages-read').value;
+    let userInput = new Book(title, author, read, pages, pagesRead)
 
-    let userInput = new Book()
+    // Append Object to DOM
+    const bookshelf = document.querySelector('.bookshelf');
+    const newBook = document.createElement('div');
+    newBook.classList.add('new-book');
+
+    newBook.innerHTML = `
+    <button class="remove-button">X</button>
+    <h2>${userInput.title}</h2>
+    <h3><i>by<br>${userInput.author}</i></h3>
+    <div class="progress-div">
+        <h5>Progress</h5>
+        <progress class="progress" max="${userInput.pages}" value="${userInput.pagesRead}"></progress>
+    </div>
+    <button class="finished-button">Finished!</button>
+    </div>`;
+
+    bookshelf.appendChild(newBook);
+
+    if(read === 'yes') {
+        document.querySelector('.finished-button').style.display = 'none';
+        newBook.style.opacity = '0.7';
+    } 
+
+    // Push Object To Storage Array
+    bookshelfArray.push(userInput);
+
+    document.querySelector('.form').reset();
+
+    showCard.style.display = 'none';
+
 }
+
 
 const showCard = document.querySelector('.book-card');
 const addBtn = document.querySelector('.add-button');
@@ -35,15 +66,6 @@ class Book {
         this.pagesRead = pagesRead;
     }
 
-    haveRead() {
-        const radios = document.querySelectorAll('.input-read');
-        const radioValue = '';
-        radios.forEach(radio => {
-            if(radio[i].checked) {
-                radioValue = radio[i].value;
-            }
-        })
-        return radioValue;
-    }
 }
 
+const bookshelfArray = [];
