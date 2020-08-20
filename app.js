@@ -1,69 +1,49 @@
-let myLibrary = [];
-
-function Book(title, author) {
-    this.title = title;
-    this.author = author;
-    this.info = function() {
-        return `${this.title} by ${this.author}`;
-    }
+// Add Event Listeners to display and hide card
+const showAddCard = () => {
+    showCard.style.display = 'block';
 }
 
-const createBook = () => {
+const deleteAddCard = () => {
+   showCard.style.display = 'none'; 
+}
+
+const appendBook = event => {
     event.preventDefault();
 
-    // Get user input and create new Book
-    let userTitle = document.getElementById('title').value;
-    let userTitleFocus = document.getElementById('title');
-    let userAuthor = document.getElementById('author').value;
-    let userBook = new Book(userTitle, userAuthor);
+    let title = document.querySelector('.input-title').value;
+    let author = document.querySelector('.input-author').value;
 
-    // Create new HTML element and append it to UL
-    const bookUl = document.querySelector('.new-books');
-    let newBook = document.createElement('li');
-    newBook.innerHTML = 
-                `<div class="new-book">
-                    <li class="book">${userBook.info()}</li>
-                    <button class="read-button">Read?</button>
-                    <button class="delete-button">Delete</button>
-                </div>`;
-    bookUl.appendChild(newBook);
-
-    // Store new book in myLibrary
-    myLibrary.push(userBook);
-
-    // Reset form and reset focus
-    const form = document.querySelector('form');
-    form.reset();
-    userTitleFocus.focus();
+    let userInput = new Book()
 }
 
-const deleteBook = event => {
-    // Set item to the delete button
-    const item = event.target;
+const showCard = document.querySelector('.book-card');
+const addBtn = document.querySelector('.add-button');
+const closeBtn = document.querySelector('.close-add-button');
+const appendBookBtn = document.querySelector('.add-book-button');
+addBtn.addEventListener('click', showAddCard);
+closeBtn.addEventListener('click', deleteAddCard);
+appendBookBtn.addEventListener('click', appendBook);
 
-    // Delete function
-    if(item.classList[0] === 'delete-button') {
-        const book = item.parentElement;
-        const delBook = book.parentElement;
-        delBook.remove();
-    } else if(item.classList[0] === 'read-button') {
-        const book = item.parentElement;
-        const readBook = book.parentElement;
-        readBook.classList.toggle('has-read');
+// Create Book Object
+class Book {
+
+    constructor(title, author, read, pages, pagesRead) {
+        this.title = title;
+        this.author = author;
+        this.read = read;
+        this.pages = pages;
+        this.pagesRead = pagesRead;
     }
 
+    haveRead() {
+        const radios = document.querySelectorAll('.input-read');
+        const radioValue = '';
+        radios.forEach(radio => {
+            if(radio[i].checked) {
+                radioValue = radio[i].value;
+            }
+        })
+        return radioValue;
+    }
 }
 
-const isRead = event => {
-    console.log(event.target);
-    const item = event.taret;
-    
-    
-}
-
-const btn = document.querySelector('.button');
-const toDelete = document.querySelector('.new-books');
-
-toDelete.addEventListener('click', deleteBook);
-
-btn.addEventListener('click', createBook);

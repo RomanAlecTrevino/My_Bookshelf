@@ -8,28 +8,87 @@
 </head>
 <body>
     <header>
-        <h2>Library</h2>
+        <h1>My Bookshelf</h1>
+        <button class="add-button">Add Book</button>
     </header>
 
     <div class="container">
-        <form>
-            <div>
-                <label class="label title" for="title">Enter Book Title</label>
-                <input type="text" name="title" class="input" id="title" placeholder="Title Here">
+
+        <div class="book-card">
+
+            <div class="add-book-card">
+
+                <div class="add-book-card-header">
+                    <br>
+                    <h2>Add A Book</h2>
+                    <button class="close-add-button">X</button>
+                </div>
+
+                <form>
+                    <div>
+                        <label for="title" class="label title">Title</label>
+                        <input type="text" class="input-title" name="title">
+                        <br>
+                    </div>
+
+                    <div>
+                        <label for="author" class="label author">Author</label>
+                        <input type="text" class="input-author" name="author">
+                        <br>
+                    </div>
+
+                    <div class="radio-buttons">
+                        <label for="read" class="label read">Have you read it yet?</label>
+                        <br>
+                        <div class="radio-btn-self">
+                            <input type="radio" value="yes" class="input-read radio-btn" name="read">Yes
+                            <br>
+                            <input type="radio" value="no" class="input-read" name="read">No
+                        </div>
+                        <br>
+                    </div>
+
+                    <div>
+                        <label for="pages" class="label pages">How many pages is it?</label>
+                        <input type="number" class="input-pages" name="pages">
+                        <br>
+                    </div>
+
+                    <div>
+                        <label for="pages-read" class="label pages-read">Which page are you on?</label>
+                        <input type="number" class="input-pages-read" name="pages-read">
+                        <br>
+                    </div>
+
+                    <button class="add-book-button">Add</button>
+                </form>
+
             </div>
-
-            <div>
-                <label class="label author" for="author">Enter Author</label>
-                <input type="text" class="input" id="author" name="author" placeholder="Author Here">
-            </div>
-
-            <button class="button">Submit</button>
-        </form>
-
-        <div class="new-book-list">
-            <ul class="new-books">
-            </ul>
         </div>
+
+        <div class="bookshelf">
+            <div class="new-book">
+                <h2>Pride and Prejudice</h2>
+                <h3><i>by Jane Austen</i></h3>
+                <div class="progress-div">
+                    <h5>Progress</h5>
+                    <progress class="progress" max="${}" value="${}"></progress>
+                </div>
+                <button>Finished!</button>
+            </div>
+            
+
+            <div class="new-book">
+                <h2>Pride and Prejudice</h2>
+                <h3><i>by Jane Austen</i></h3>
+                <div class="progress-div">
+                    <h5>Progress</h5>
+                    <progress class="progress" max="${}" value="${}"></progress>
+                </div>
+                <button>Finished!</button>
+            </div>
+        </div>
+
     </div>
 
     <script src="app.js"></script>
