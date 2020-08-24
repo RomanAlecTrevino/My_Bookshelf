@@ -1,6 +1,5 @@
 * {
     margin: 0;
-
     padding: 0;
     box-sizing: border-box;
 }
@@ -9,6 +8,9 @@ body {
     background-image: url("Bookshelf-bkg.jpg");
     backgorund-position: center;
     background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Lato', sans-serif; 
 }
 
 header {
@@ -19,6 +21,10 @@ header {
     padding-right: 10px;
     font-size: 1rem;
     background: rgba(221, 223, 229, 0.1);
+}
+
+header h1 {
+    font-weight: bold;
 }
 
 header button {
@@ -38,6 +44,13 @@ header button {
 
 header button:hover {
     opacity: 0.8;
+    cursor: pointer;
+}
+
+header i {
+    position: absolute;
+    right: 6.5px;
+    bottom: 5.5px;
 }
 
 .container {
@@ -80,6 +93,14 @@ header button:hover {
     height: 25px;
     width: 25px;
     border-radius: 2px;;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+.add-book-card-header h2 {
+    position: absolute;
+    top: 20px;
 }
 
 form div {
@@ -91,6 +112,7 @@ form .radio-buttons {
     display: flex;
     padding-top: 10px;
     text-align: center;
+    padding: 20px;
 }
 
 form .radio-buttons .radio-btn-self {
@@ -167,4 +189,13 @@ progress {
 
 .finished {
     background-color: rgba(0, 0, 0, 0.9);    
+}
+
+.close-add-button {
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.close-add-button:hover {
+    opacity: 0.7;
 }

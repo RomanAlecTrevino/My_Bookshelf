@@ -32,11 +32,6 @@ const appendBook = event => {
 
     bookshelf.appendChild(newBook);
 
-    if(read === 'yes') {
-        document.querySelector('.finished-button').style.display = 'none';
-        newBook.style.opacity = '0.7';
-    } 
-
     // Push Object To Storage Array
     bookshelfArray.push(userInput);
 
@@ -44,6 +39,17 @@ const appendBook = event => {
 
     showCard.style.display = 'none';
 
+}
+
+const handleBook = event => {
+    const item = event.target;
+    const book = item.parentElement;
+    if(item.classList[0] === 'finished-button') {
+        item.style.display = 'none';
+        book.style.opacity = '0.7';
+    } else if(item.classList[0] === 'remove-button') {
+        book.remove();
+    }
 }
 
 
@@ -54,6 +60,7 @@ const appendBookBtn = document.querySelector('.add-book-button');
 addBtn.addEventListener('click', showAddCard);
 closeBtn.addEventListener('click', deleteAddCard);
 appendBookBtn.addEventListener('click', appendBook);
+window.addEventListener('click', handleBook);
 
 // Create Book Object
 class Book {
