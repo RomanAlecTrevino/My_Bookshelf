@@ -1,14 +1,5 @@
-My Bookshelf
+# My Bookshelf
 
-* [x] Refactor HTML
-* [x] Refactor CSS
-* [x] Refactor JS
-    * [x] Create listener to show hidden card
-    * [x] Create 'x' button listener
-    * [x] Get user input and create new Book
-    * [x] Append new Book to DOM
-    * [x] Store new Book in array
-    * [x] Take away finished button if finished
-    * [x] Add delete button on book
-    * [x] Reset fields after book adds
-    * [x] Auto close add book card when book is added
+User can click the add button and add a book to the app. 
+The book, once appended, will show a progress bar to see how close to completion the user is. 
+The book can be marked off as finished or deleted entirely. 
